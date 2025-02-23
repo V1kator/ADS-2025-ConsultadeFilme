@@ -1,0 +1,23 @@
+.movie-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* Alinha os filmes no centro */
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;  /* Centraliza o grid na página */
+  }
+  
+  .no-results {
+    font-size: 1.2rem;
+    color: #bbb;
+    text-align: center;
+  }
+  

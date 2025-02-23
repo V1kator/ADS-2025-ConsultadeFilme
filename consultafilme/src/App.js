@@ -1,11 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home.js";
-import MovieDetails from "./pages/MovieDetails.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import MovieDetails from "./pages/MovieDetails";
+import "./styles/App.css";  // Importação do estilo global
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <h1>🎬 TMDB Movie Search</h1>
         <Routes>
@@ -13,7 +14,7 @@ function App() {
           <Route path="/movie/:id" element={<MovieDetails />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

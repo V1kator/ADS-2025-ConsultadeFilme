@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../styles/MovieDetails.css";
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
 function MovieDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -30,18 +32,18 @@ function MovieDetails() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
-      <h2>{movie.title}</h2>
-      <p>📅 Lançamento: {movie.release_date}</p>
-      <p>⭐ Avaliação: {movie.vote_average}</p>
-      <p>{movie.overview}</p>
+    <div className="movie-details">
       {movie.poster_path && (
         <img 
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
           alt={movie.title} 
-          width="300"
         />
       )}
+      <h2>{movie.title}</h2>
+      <p>📅 Lançamento: {movie.release_date}</p>
+      <p>⭐ Avaliação: {movie.vote_average}</p>
+      <p>{movie.overview}</p>
+      <button className="back-button" onClick={() => navigate(-1)}>⬅ Voltar</button>
     </div>
   );
 }
